@@ -53,16 +53,24 @@
 <script>
 import sudokuGeneratorOptions from "./Sudoku/generator-options.vue";
 import sudokuSolverOptions from "./Sudoku/solver-options.vue";
-import nQueensOptions from "./NQueens/n-queens-options.vue";
-import knightTourOptions from "./KnightTour/knight-tour-options.vue";
 
 import { mainConfig } from "../config";
 var { problemsEnum } = mainConfig;
 
 export default {
   name: "options-controller",
-  components: { sudokuGeneratorOptions, sudokuSolverOptions, nQueensOptions, knightTourOptions },
-  props: ["options", "ChooseOption", "isDisabled", "StartVisualization", "problem", "colors"],
+  components: {
+    sudokuGeneratorOptions,
+    sudokuSolverOptions,
+  },
+  props: [
+    "options",
+    "ChooseOption",
+    "isDisabled",
+    "StartVisualization",
+    "problem",
+    "colors",
+  ],
   data: function () {
     return {
       problemsEnum: problemsEnum,

@@ -14,17 +14,10 @@
         :isDisabled="isDisabled"
         :gridSize="options.gridSize"
         :colors="colors"
-        :ChooseGridEmptiness="(emptiness) => ChooseOption(emptiness, 'gridEmptiness')"
+        :ChooseGridEmptiness="
+          (emptiness) => ChooseOption(emptiness, 'gridEmptiness')
+        "
       ></grid-emptiness-options>
-    </v-col>
-    <v-col md="12" sm="6" cols="12">
-      <v-switch
-        label="Best Cell First"
-        v-model="bestFirst"
-        :disabled="isDisabled"
-        :color="colors.primary"
-        @change="ChooseOption(bestFirst, 'bestFirst')"
-      ></v-switch>
     </v-col>
     <v-col sm="6" v-if="$vuetify.breakpoint.sm">
       <div class="text-center">
@@ -50,7 +43,13 @@ import gridEmptinessOptions from "./grid-emptiness-options.vue";
 export default {
   name: "generator-options",
   components: { gridSizeOptions, gridEmptinessOptions },
-  props: ["options", "isDisabled", "colors", "ChooseOption", "StartVisualization"],
+  props: [
+    "options",
+    "isDisabled",
+    "colors",
+    "ChooseOption",
+    "StartVisualization",
+  ],
   data: function () {
     return {
       bestFirst: this.options.bestFirst,
@@ -59,7 +58,8 @@ export default {
   watch: {
     options: {
       handler: function (val, oldVal) {
-        if (val.bestFirst != oldVal.bestFirst) this.bestFirst = this.options.bestFirst;
+        if (val.bestFirst != oldVal.bestFirst)
+          this.bestFirst = this.options.bestFirst;
       },
       deep: true,
     },

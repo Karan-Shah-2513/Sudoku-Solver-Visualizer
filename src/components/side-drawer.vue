@@ -1,5 +1,10 @@
 <template>
-  <v-navigation-drawer v-model="drawerValue" absolute temporary style="z-index: 500">
+  <v-navigation-drawer
+    v-model="drawerValue"
+    absolute
+    temporary
+    style="z-index: 500"
+  >
     <v-list>
       <v-list-group :value="true" :color="colors.primary" no-action>
         <template v-slot:activator>
@@ -43,11 +48,18 @@
 import helpDialog from "./help-dialog.vue";
 import { mainConfig } from "../config";
 export default {
-  props: ["drawer", "problem", "colors", "CloseDrawer", "ChooseProblem", "ChangeColor"],
+  props: [
+    "drawer",
+    "problem",
+    "colors",
+    "CloseDrawer",
+    "ChooseProblem",
+    "ChangeColor",
+  ],
   components: { helpDialog },
   data: function () {
     return {
-      gitLink: "https://github.com/MohamedMahmoudHassan/Sudoku-Solver-Visualizer",
+      gitLink: "https://github.com/Karan-Shah-2513/Sudoku-Solver-Visualizer",
       drawerValue: this.drawer,
       problemsList: mainConfig.problemsList,
     };

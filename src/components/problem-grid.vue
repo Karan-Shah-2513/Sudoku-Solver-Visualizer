@@ -8,7 +8,10 @@
           :loading="isSearching ? colors.primary : false"
         >
           <sudoku-grid
-            v-if="problem == problemsEnum.sudokuGenerator || problem == problemsEnum.sudokuSolver"
+            v-if="
+              problem == problemsEnum.sudokuGenerator ||
+              problem == problemsEnum.sudokuSolver
+            "
             :grid="grid"
             :options="options"
             :colors="colors"
@@ -33,15 +36,13 @@
 
 <script>
 import sudokuGrid from "./Sudoku/sudoku-grid.vue";
-import nQueensGrid from "./NQueens/n-queens-grid.vue";
-import knightTourGrid from "./KnightTour/knight-tour-grid.vue";
 
 import { mainConfig } from "../config";
 var { problemsEnum } = mainConfig;
 
 export default {
   name: "problem-grid",
-  components: { sudokuGrid, nQueensGrid, knightTourGrid },
+  components: { sudokuGrid },
   props: ["grid", "problem", "isSearching", "options", "colors"],
   data: function () {
     return {

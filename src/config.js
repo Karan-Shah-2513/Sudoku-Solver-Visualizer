@@ -39,8 +39,6 @@ var mainConfig = {
   problemsEnum: {
     sudokuGenerator: "SudokuGenerator",
     sudokuSolver: "SudokuSolver",
-    nQueens: "NQueens",
-    knightTour: "KnightTour",
   },
   cellStatesList: [
     { id: 1, label: "Empty", value: "empty-cell", color: "empty" },

@@ -29,7 +29,9 @@
         </v-col>
         <v-col md="3" sm="5" cols="12">
           <visualization-grid
-            :isDisabled="![modesEnum.paused, modesEnum.active].includes(visualization.mode)"
+            :isDisabled="
+              ![modesEnum.paused, modesEnum.active].includes(visualization.mode)
+            "
             :colors="colors"
             :visualization="visualization"
             :AutoPlay="StartAutoPlay"
@@ -116,7 +118,10 @@ export default {
     ChangeProblem: function (problem) {
       if (this.problem == problem) return;
       this.problem = problem;
-      this.ChangeColor(mainConfig.problemsList.find((p) => p.value == problem).color, "primary");
+      this.ChangeColor(
+        mainConfig.problemsList.find((p) => p.value == problem).color,
+        "primary"
+      );
       this.options = GetDefaultOptions(problem);
       this.InitProblem();
     },
@@ -132,7 +137,11 @@ export default {
       }
       setTimeout(() => {
         if (this.visualization.mode == visualConfig.modesEnum.searching) {
-          var solution = (solution = Solve(this.problem, this.options, this.grid));
+          var solution = (solution = Solve(
+            this.problem,
+            this.options,
+            this.grid
+          ));
           if (solution == -1) {
             if (triesCounter == 5) {
               this.visualization.mode = visualConfig.modesEnum.disabled;
@@ -152,7 +161,8 @@ export default {
         this.Pause();
         return false;
       }
-      const { actions, description } = this.visualization.steps[this.visualization.currentStepId++];
+      const { actions, description } =
+        this.visualization.steps[this.visualization.currentStepId++];
       ApplyForwardAction(this.problem, actions, this.grid);
 
       var { text, color } = description;
@@ -168,7 +178,8 @@ export default {
       var { currentStepId } = this.visualization;
       if (!currentStepId) return false;
 
-      const { actions } = this.visualization.steps[--this.visualization.currentStepId];
+      const { actions } =
+        this.visualization.steps[--this.visualization.currentStepId];
       ApplyBackAction(this.problem, actions, this.grid);
       this.visualization.descriptionList.splice(0, 1);
       return true;
@@ -180,10 +191,15 @@ export default {
     },
 
     AutoPlay: function () {
-      if (this.visualization.mode == visualConfig.modesEnum.active && this.StepForward())
+      if (
+        this.visualization.mode == visualConfig.modesEnum.active &&
+        this.StepForward()
+      )
         setTimeout(
           () => this.AutoPlay(),
-          visualConfig.speedsList.find((sp) => sp.value == this.visualization.speed).interval
+          visualConfig.speedsList.find(
+            (sp) => sp.value == this.visualization.speed
+          ).interval
         );
     },
 
