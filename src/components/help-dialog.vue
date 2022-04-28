@@ -47,14 +47,6 @@
           <v-icon left> mdi-grid </v-icon>
           <span v-if="!$vuetify.breakpoint.xs"> Sudoku Solver</span>
         </v-tab>
-        <v-tab class="small-tab">
-          <v-icon left> mdi-chess-queen </v-icon>
-          <span v-if="!$vuetify.breakpoint.xs"> N-Queen</span>
-        </v-tab>
-        <v-tab class="small-tab">
-          <v-icon left> mdi-chess-knight </v-icon>
-          <span v-if="!$vuetify.breakpoint.xs"> Knight's Tour</span>
-        </v-tab>
 
         <v-tab-item>
           <v-card flat class="fill-height">

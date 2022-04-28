@@ -143,7 +143,7 @@ var sudokuSolConfig = {
   defaultValues: {
     gridSize: 3,
     gridEmptiness: 50,
-    bestFirst: true,
+    bestFirst: false,
   },
   optionsNeedRecreate: ["gridSize"],
   optionsNeedUpdate: ["gridEmptiness"],
